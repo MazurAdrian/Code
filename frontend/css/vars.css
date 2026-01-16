@@ -1,0 +1,16 @@
+/* Importing google fonts */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=League+Spartan:wght@100..900&display=swap");
+
+/* Set global variables */
+:root {
+  --colour-button: #40f2e4;
+  --colour-accent: #64f2cf;
+  --colour-background: #88d989;
+  --colour-border: #a2c13d;
+  --colour-other: #bec643;
+  --colour-text: #000000;
+
+  --font-header: "League Spartan";
+  --font-text: "Arimo";
+}

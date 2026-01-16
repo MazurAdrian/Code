@@ -1,0 +1,18 @@
+@import url(vars.css);
+
+/* Global */
+
+body {
+  background-color: var(--colour-background);
+  font-family: var(--font-text);
+  color: var(--colour-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-header);
+}
