@@ -47,6 +47,24 @@ main {
   text-align: center;
 }
 
+.main-content > img {
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.main-content > :is(h1, h2, h3, h4, h5, h6) {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+}
+
+.main-content .center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
 .content-container-left,
 .content-container-right {
   flex: 1;

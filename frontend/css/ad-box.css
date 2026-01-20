@@ -1,0 +1,38 @@
+.ad-container-outer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colour-background);
+  border-radius: 23px;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.ad-container-outer * {
+  margin-top: 1.5rem;
+}
+
+.ad-container-outer > p {
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.ad-container-outer > img {
+  align-self: center;
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.ad-container-outer > button {
+  border-radius: 12px;
+  background-color: var(--colour-button);
+  padding: 1rem;
+  border: 2px solid var(--colour-border);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ad-container-outer > button:hover {
+  background-color: var(--colour-accent);
+}
