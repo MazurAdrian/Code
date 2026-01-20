@@ -3,8 +3,8 @@
   flex-direction: column;
   background-color: var(--colour-background);
   border-radius: 23px;
-  padding: 1rem;
-  margin: 2rem;
+  padding: 0.5rem;
+  margin: 1rem;
 }
 
 .ad-container-outer * {
@@ -18,10 +18,10 @@
 
 .ad-container-outer > img {
   align-self: center;
-  padding: 15px;
+  padding: 0.5rem;
   border-radius: 25px;
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
 }
 
 .ad-container-outer > button {

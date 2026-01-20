@@ -1,0 +1,31 @@
+.content-container-middle > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container-middle > form > input {
+  border: 4px solid var(--colour-border);
+  border-radius: 19px;
+  padding: 0.2rem;
+  margin-bottom: 10px;
+  width: 20rem;
+}
+
+.content-container-middle > form > input.invalid {
+  border-color: red;
+  box-shadow: 0 0 6px 1px red;
+}
+
+.content-container-middle > form > input[type="submit"] {
+  background-color: var(--colour-button);
+  margin-top: 10px;
+  width: 10rem;
+}
+
+.invalid-password-error {
+  margin: 0.3rem;
+  font-size: small;
+  color: red;
+}

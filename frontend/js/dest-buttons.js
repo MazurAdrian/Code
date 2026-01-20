@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Format the destination to be dynamic across all pages
     const formattedDestination = `/frontend/${destination}`;
 
+    // Set the location of the window to the destination
     window.location = formattedDestination;
   });
 });

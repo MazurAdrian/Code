@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safari Heights - Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/frontend/css/main.css" />
+    <link rel="stylesheet" href="/frontend/css/ad-box.css" />
+    <link rel="stylesheet" href="/frontend/css/calendar-styling.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="main-content">
+        <div class="content-container-left">
+          <h1>Did you know?</h1>
+          <hr />
+          <h2>Availability</h2>
+          <p>
+            This interactive calendar updates as soon as we determine that there
+            are no available slots on a given day, and we will make clear of
+            this on your selection!
+          </p>
+          <hr />
+          <h2>Special</h2>
+          <p>
+            We provide many incentives and rewards for booking on a certain day,
+            to find out about potential rewards on a certain day, click on it on
+            the calendar, and extra information will appear!
+          </p>
+        </div>
+
+        <div class="content-container-middle">
+          <h1>Interactive Calendar</h1>
+          <div class="calendar">
+            <div class="current-date">
+              <button id="previous-month" class="previous-month"><</button>
+              <h3 id="current-date" class="current-date">January 2026</h3>
+              <button id="next-month" class="next-month">></button>
+            </div>
+            <hr />
+            <div class="interactive-days">
+              <h3 class="day-of-the-week">M</h3>
+              <h3 class="day-of-the-week">T</h3>
+              <h3 class="day-of-the-week">W</h3>
+              <h3 class="day-of-the-week">Th</h3>
+              <h3 class="day-of-the-week">F</h3>
+              <h3 class="day-of-the-week">S</h3>
+              <h3 class="day-of-the-week">Su</h3>
+              <button type="button" class="day-button" day="29">29</button>
+              <button type="button" class="day-button" day="30">30</button>
+              <button type="button" class="day-button" day="31">31</button>
+              <button type="button" class="day-button" day="31">31</button>
+              <button type="button" class="day-button" day="31">31</button>
+              <button type="button" class="day-button" day="31">31</button>
+              <button type="button" class="day-button" day="31">31</button>
+            </div>
+          </div>
+          <div class="date-info"></div>
+          <button class="book-tickets-button" type="button">
+            Click to book tickets for this day!
+          </button>
+        </div>
+
+        <div class="content-container-right" id="advertisement-container">
+          <div id="advertisement-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Dynamic navbar insert and management -->
+    <script src="/frontend/navbar/manage.js"></script>
+    <script src="/frontend/js/ad-container.js"></script>
+    <script src="/frontend/js/dest-buttons.js"></script>
+  </body>
+</html>

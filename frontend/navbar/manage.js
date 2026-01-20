@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.text())
     .then((html) => (navbarEl.innerHTML = html));
 
+  // Insert a dynamic navbar style.css into the target html
   fetch("/frontend/navbar/style.css")
     .then((res) => res.text())
     .then((css) =>
