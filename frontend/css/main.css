@@ -14,7 +14,6 @@ body {
   color: var(--colour-text);
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   box-sizing: border-box;
 }
 
@@ -29,6 +28,7 @@ h6 {
 
 main {
   padding: 1rem;
+  flex: 1;
 }
 
 .main-content {
@@ -42,7 +42,7 @@ main {
   padding: 1rem;
   border-radius: 8px;
   min-width: 0;
-  border: 2px solid var(--colour-border);
+  border: 3px solid var(--colour-border);
   background-color: var(--colour-other);
   text-align: center;
 }

@@ -6,7 +6,7 @@
 }
 
 .content-container-middle > form > input {
-  border: 4px solid var(--colour-border);
+  border: 2px solid var(--colour-border);
   border-radius: 19px;
   padding: 0.2rem;
   margin-bottom: 10px;

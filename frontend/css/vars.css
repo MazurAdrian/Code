@@ -4,11 +4,11 @@
 
 /* Set global variables */
 :root {
-  --colour-button: #40f2e4;
-  --colour-accent: #64f2cf;
-  --colour-background: #88d989;
-  --colour-border: #a2c13d;
-  --colour-other: #bec643;
+  --colour-button: #FF8E6B;
+  --colour-accent: #AD645C;
+  --colour-background: #FFBF6B;
+  --colour-border: #84AD4E;
+  --colour-other: #D8D888;
   --colour-text: #000000;
 
   --font-header: "League Spartan";
