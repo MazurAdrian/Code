@@ -16,6 +16,13 @@ const templateAd = [
 
 // Ensure all elements are loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Dynamically insert the css for ad
+  fetch("/frontend/css/advertisement.css")
+    .then((res) => res.text())
+    .then((css) =>
+      document.head.insertAdjacentHTML("beforeend", `<style>${css}</style>`),
+    );
+
   // Get the ad container div, this is where all ads will be
   const adContainer = document.getElementById("advertisement-container");
 

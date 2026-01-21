@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
-    <link rel="stylesheet" href="/frontend/css/ad-box.css" />
     <link rel="stylesheet" href="/frontend/css/tickets.css" />
   </head>
   <body>
@@ -21,18 +20,7 @@
       <div class="main-content">
         <div class="content-container-left">
           <h1>Did you know?</h1>
-          <hr />
-          <h2>Discounts</h2>
-          <p>
-            We often include discounts and other incentives with certain
-            tickets, these will be made clear during checkout!
-          </p>
-          <hr />
-          <h2>Cancellation</h2>
-          <p>
-            Changed your mind? Well you can request a refund up to 24 hours
-            before your visit!
-          </p>
+          <div id="factInfoContainer"></div>
         </div>
 
         <div class="content-container-middle">
@@ -53,7 +41,7 @@
           </div>
         </div>
 
-        <div class="content-container-right" id="advertisement-container">
+        <div class="content-container-right">
           <div id="advertisement-container"></div>
         </div>
       </div>
@@ -68,10 +56,25 @@
     ></script>
 
     <!-- Dynamic navbar insert and management -->
-    <script src="/frontend/navbar/manage.js"></script>
-    <script src="/frontend/js/ad-container.js"></script>
-    <script src="/frontend/js/dest-buttons.js"></script>
-    <script src="/frontend/js/insert-tickets.js"></script>
-    <script src="/frontend/js/add-to-basket.js"></script>
+    <script src="/frontend/js/Navigation.js"></script>
+    <script src="/frontend/js/Advertisement.js"></script>
+    <script src="/frontend/js/DestButtons.js"></script>
+    <script type="module" src="/frontend/js/InfoBar.js"></script>
+    <script type="module">
+      import { displayInfoBar } from "/frontend/js/InfoBar.js";
+      displayInfoBar([
+        {
+          title: "Discounts",
+          desc: "We often include discounts and other incentives with certain tickets, these will be made clear during checkout!",
+        },
+        {
+          title: "Cancellation",
+          desc: "Changed your mind? Well you can request a refund up to 24 hours before your visit!",
+        },
+      ]);
+    </script>
+
+    <script src="/frontend/js/Tickets.js"></script>
+    <script src="/frontend/js/Basket.js"></script>
   </body>
 </html>

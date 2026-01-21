@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
-    <link rel="stylesheet" href="/frontend/css/ad-box.css" />
     <link rel="stylesheet" href="/frontend/css/login.css" />
   </head>
   <body>
@@ -21,20 +20,7 @@
       <div class="main-content">
         <div class="content-container-left">
           <h1>Did you know?</h1>
-          <hr />
-          <h2>Benefits</h2>
-          <p>
-            Registering with Safari Heights is highly beneficial for both you
-            and us! Registration allows you to keep track of
-            <u>all</u> bookings, and manage each booking, down to the individual
-            ticket!
-          </p>
-          <p>
-            Do you hate having to search through your email for past bookings?
-            Well with registration, every future, past and current booking is
-            safely held on your dashboard page, no more stress when looking for
-            your QR code!
-          </p>
+          <div id="factInfoContainer"></div>
         </div>
 
         <div class="content-container-middle">
@@ -103,7 +89,7 @@
           </form>
         </div>
 
-        <div class="content-container-right" id="advertisement-container">
+        <div class="content-container-right">
           <div id="advertisement-container"></div>
         </div>
       </div>
@@ -118,10 +104,20 @@
     ></script>
 
     <!-- Dynamic navbar insert and management -->
-    <script src="/frontend/navbar/manage.js"></script>
-    <script src="/frontend/js/ad-container.js"></script>
-    <script src="/frontend/js/dest-buttons.js"></script>
-    <script src="/frontend/js/validate-login-inputs.js"></script>
-    <script src="/frontend/js/send-login-data.js"></script>
+    <script src="/frontend/js/Navigation.js"></script>
+    <script src="/frontend/js/Advertisement.js"></script>
+    <script src="/frontend/js/DestButtons.js"></script>
+    <script type="module" src="/frontend/js/InfoBar.js"></script>
+    <script type="module">
+      import { displayInfoBar } from "/frontend/js/InfoBar.js";
+      displayInfoBar([
+        {
+          title: "Benefits",
+          desc: "Registering with Safari Heights is highly beneficial for both you and us! Registration allows you to keep track of <u>all</u> bookings, and manage each booking, down to the individual ticket!<br />Do you hate having to search through your email for past bookings? Well with registration, every future, past and current booking is safely held on your dashboard page, no more stress when looking for your QR code!",
+        },
+      ]);
+    </script>
+
+    <script src="/frontend/js/LoginReg.js"></script>
   </body>
 </html>

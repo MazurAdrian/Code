@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
-    <link rel="stylesheet" href="/frontend/css/ad-box.css" />
   </head>
   <body>
     <header></header>
@@ -20,13 +19,7 @@
       <div class="main-content">
         <div class="content-container-left">
           <h1>Did you know?</h1>
-          <hr />
-          <h2>Lorem Ipsum</h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure modi
-            voluptatum quos, quasi debitis consequuntur, officia ipsum optio
-            magni dignissimos fuga ut rem corrupti animi?
-          </p>
+          <div id="factInfoContainer"></div>
         </div>
 
         <div class="content-container-middle">
@@ -40,7 +33,7 @@
           </p>
         </div>
 
-        <div class="content-container-right" id="advertisement-container">
+        <div class="content-container-right">
           <div id="advertisement-container"></div>
         </div>
       </div>
@@ -55,28 +48,34 @@
     ></script>
 
     <!-- Dynamic navbar insert and management -->
-    <script src="/frontend/navbar/manage.js"></script>
-    <script src="/frontend/js/ad-container.js"></script>
-    <script src="/frontend/js/dest-buttons.js"></script>
+    <script src="/frontend/js/Navigation.js"></script>
+    <script src="/frontend/js/Advertisement.js"></script>
+    <script src="/frontend/js/DestButtons.js"></script>
+    <script type="module" src="/frontend/js/InfoBar.js"></script>
+    <script type="module">
+      import { displayInfoBar } from "/frontend/js/InfoBar.js";
+      displayInfoBar([]);
+    </script>
   </body>
 </html>
 
 <!-- IDEAS
   1. Add a footer
   2. Find a better color scheme
+  3. Dynamic left content bar insertion, custom function per file, data injection is easy
 -->
 
 <!-- PAGES
   1. Basket
-  2. Interactive Calendar -- Make the dates (M-Su) the first column so the width is the same as buttons
-  (REDO THE ENTIRE CALENDAR SYSTEM)
+  2. Interactive Calendar -- Style the calendar
   3. Educational Visits
   4. Home / Accomodation
 -->
 
 <!-- BACKEND TO MAKE
-  1. Login (/frontend/js/send-login-data.js)
-  2. Registration (/frontend/js/send-login-data.js)
-  3. Offers (/frontend/js/add-container.js)
-  4. Add to basket (/frontend/js/add-to-basket.js)
+  1. Login (/frontend/js/LoginReg.js)
+  2. Registration (/frontend/js/LoginReg.js)
+  3. Offers (/frontend/js/Advertisement.js)
+  4. Add to basket (/frontend/js/Basket.js)
+  5. Calendar, specific day info (/frontend.js/Calendar.js)
 -->

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get all registration input elements
   const registerEmailInput = document.getElementById("form-register-email");
   const registerPasswordInput = document.getElementById(
-    "form-register-password"
+    "form-register-password",
   );
   const registerFNameInput = document.getElementById("form-register-fname");
   const registerLNameInput = document.getElementById("form-register-lname");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // A small message that shows the reason for password invalidity (if applicable)
   const invalidPasswordMessage = document.getElementById(
-    "invalid-password-error"
+    "invalid-password-error",
   );
 
   // Real-time validation, check when a user types in a textbox
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       registerPasswordInput,
       registerFNameInput,
       registerLNameInput,
-      registerButton
+      registerButton,
     );
 
     // Loop through each textbox and determine which is being typed into
@@ -56,6 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
       case "form-register-lname":
         displayValid(isValidName(event.target.value), event.target);
         break;
+    }
+  });
+
+  //  This script will manage login and registration based on the form submission
+
+  document.addEventListener("submit", (event) => {
+    // Create a FormData object to store the data in a more orderly manner
+    const form = new FormData(event.target);
+
+    // Login and registration both use different routes, so we check for that
+    if (event.target.id === "login-form") {
+      // Login magic
+    } else if (event.target.id === "register-form") {
+      // Register magic
     }
   });
 });
@@ -89,7 +103,7 @@ function validateRegisterButton(
   passwordEl,
   fnameEl,
   lnameEl,
-  registerButtonEl
+  registerButtonEl,
 ) {
   if (
     isValidEmail(emailEl.value) &&
