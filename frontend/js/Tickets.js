@@ -28,12 +28,48 @@ const templateTickets = [
 document.addEventListener("DOMContentLoaded", () => {
   // Get the container for the tickets
   const ticketsContainer = document.getElementById("tickets-section");
+  const dateInputEl = document.getElementById("dateSelect");
+  const dateErrorEl = document.getElementById("date-error");
 
   // Fetch basket from backend here
 
   // Loop through each ticket and insert the formatted HTML into the ticket container
   templateTickets.forEach((ticket) => {
     ticketsContainer.innerHTML += formattedTicketHTML(ticket);
+  });
+
+  // TICKETS: Add check so that on page load, if there is date query params then
+  // buttons should enable by default
+
+  dateInputEl.addEventListener("input", (event) => {
+    const date = event.target.value.split("-");
+    const year = date[0];
+    const month = date[1];
+    const day = date[2];
+
+    const url = new URL(window.location.href);
+
+    url.searchParams.set("d", day);
+    url.searchParams.set("m", month);
+    url.searchParams.set("y", year);
+    window.history.replaceState({}, "", url);
+
+    if (!dateWithinBounds(new Date(date))) {
+      dateErrorEl.textContent =
+        "Invalid date! Your desired date must be after today and no more than 2 months in advance!";
+      document
+        .querySelectorAll(".ticket-add-to-basket-button")
+        .forEach((buttonEl) => {
+          buttonEl.setAttribute("disabled", "");
+        });
+    } else {
+      dateErrorEl.textContent = "";
+      document
+        .querySelectorAll(".ticket-add-to-basket-button")
+        .forEach((buttonEl) => {
+          buttonEl.removeAttribute("disabled");
+        });
+    }
   });
 });
 
@@ -52,11 +88,29 @@ function formattedTicketHTML(ticket) {
   </div>
   <button
     type="button"
+    disabled
     id="ticket-add-to-basket-button"
     ticket-id="${ticket.ticketId}"
     class="ticket-add-to-basket-button"
+    ticket-add-to-basket-button=""
   >
     Add To Basket
   </button>
 </div>`;
+}
+
+/**
+ *
+ * @param {Date} date
+ * @returns {boolean}
+ */
+function dateWithinBounds(date) {
+  const today = new Date();
+  const maxBound = new Date(
+    today.getFullYear(),
+    today.getMonth() + 2,
+    today.getDate(),
+  );
+
+  return date > today && date < maxBound;
 }

@@ -26,6 +26,15 @@
         <div class="content-container-middle">
           <h1>Book Tickets</h1>
           <hr />
+          <h2>Select Date</h2>
+          <p id="date-error" class="date-error"></p>
+          <input
+            type="date"
+            name="dateSelect"
+            id="dateSelect"
+            class="form-control"
+          />
+          <hr />
           <div id="tickets-section"></div>
           <div class="extra-content">
             <p class="info-text">
@@ -56,7 +65,7 @@
     ></script>
 
     <!-- Dynamic navbar insert and management -->
-    <script src="/frontend/js/Navigation.js"></script>
+    <script type="module" src="/frontend/js/Navigation.js"></script>
     <script src="/frontend/js/Advertisement.js"></script>
     <script src="/frontend/js/DestButtons.js"></script>
     <script type="module" src="/frontend/js/InfoBar.js"></script>
@@ -69,12 +78,11 @@
         },
         {
           title: "Cancellation",
-          desc: "Changed your mind? Well you can request a refund up to 24 hours before your visit!",
+          desc: "Changed your mind? Well you can request a refund up to 24 hours before your visit! Just give us a call and we will sort it out for you!",
         },
       ]);
     </script>
 
     <script src="/frontend/js/Tickets.js"></script>
-    <script src="/frontend/js/Basket.js"></script>
   </body>
 </html>

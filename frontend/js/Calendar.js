@@ -146,9 +146,7 @@ function calendarDateClickEvent(date) {
   }
 
   modalBookButton.addEventListener("click", () => {
-    alert(
-      `One day in the near future, this will send you to the checkout page for a certain day (${formattedDate})`,
-    );
+    window.location = `/frontend/pages/tickets.html?d=${day}&m=${month}&y=${year}`;
   });
 
   const modal = new bootstrap.Modal(modalEl);

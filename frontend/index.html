@@ -107,7 +107,17 @@
 
         <div class="content-container-middle">
           <h2>Who are we?</h2>
-          <p>We are <strong>Safari Heights</strong>,</p>
+          <p>
+            We are <strong>Safari Heights Animal Family Trust</strong>, a local
+            safari where families can come together and enjoy driving through
+            our large resort, interact with our various animals, or just spend
+            the day in our fabulous scenery! We take pride in our work and go
+            above and beyond for all customers.
+          </p>
+          <img
+            src="/frontend/assets/safari_example_1.png"
+            alt="Example of our safari"
+          />
           <hr />
           <h2>Our goal</h2>
           <p>
@@ -121,8 +131,6 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2388.5484593440533!2d-2.886069486447622!3d53.225944072139086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487add9d7c4b2fe7%3A0x1458b55b7024e327!2sChester%20Zoo!5e0!3m2!1sen!2suk!4v1769164002469!5m2!1sen!2suk"
             width="600"
             height="450"
-            style="border: 0"
-            allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -143,7 +151,7 @@
     ></script>
 
     <!-- Dynamic navbar insert and management -->
-    <script src="/frontend/js/Navigation.js"></script>
+    <script type="module" src="/frontend/js/Navigation.js"></script>
     <script src="/frontend/js/Advertisement.js"></script>
     <script src="/frontend/js/DestButtons.js"></script>
   </body>
@@ -151,8 +159,6 @@
 
 <!-- IDEAS
   1. Add a footer -- DONE: JUST GIVE IT CONTENT
-  2. Style iframes (and images) within the main content box
-  3. If the user is logged in, login button should be "basket" instead
   4. Header -- On mobile view, make one button per row
 -->
 
@@ -160,7 +166,6 @@
   1. Basket
   2. Checkout
   3. Educational Visits
-  4. Home / Accomodation
 -->
 
 <!-- BACKEND TO MAKE
@@ -168,5 +173,6 @@
   2. Registration (/frontend/js/LoginReg.js)
   3. Offers (/frontend/js/Advertisement.js)
   4. Add to basket (/frontend/js/Basket.js)
-  5. Calendar, specific day info (/frontend.js/Calendar.js)
+  5. Calendar, specific day info (/frontend/Calendar.js)
+  6. Util functions (/frontend/Backend.js)
 -->

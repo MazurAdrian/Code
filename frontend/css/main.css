@@ -39,12 +39,22 @@ main {
 }
 
 .main-content > div {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   border-radius: 8px;
   min-width: 0;
   border: 3px solid var(--colour-border);
   background-color: var(--colour-other);
   text-align: center;
+}
+
+.main-content > div > img,
+.main-content > div > iframe {
+  width: 100%;
+  display: block;
+  border: 3px solid var(--colour-border);
+  border-radius: 25px;
 }
 
 .main-content > img {

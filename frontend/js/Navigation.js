@@ -1,3 +1,5 @@
+import { isLoggedIn } from "./Backend.js";
+
 window.addEventListener("DOMContentLoaded", () => {
   // Insert a dynamic content.html file into the target html
   const navbarEl = document.getElementsByTagName("header")[0];
@@ -5,9 +7,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Navbar
 
+  // Insert authentication functions
+  document.head.insertAdjacentHTML(
+    "beforeend",
+    '<script type="module" src="/frontend/js/Auth.js"></script>',
+  );
+
   fetch("/frontend/templates/navbar/content.html")
     .then((res) => res.text())
-    .then((html) => (navbarEl.innerHTML = html));
+    .then((html) => {
+      navbarEl.innerHTML = html;
+      const navbarLoginBtn = document.getElementById("navbar-login-btn");
+
+      if (isLoggedIn()) {
+        navbarLoginBtn.textContent = "Basket";
+        navbarLoginBtn.setAttribute("dest", "pages/basket.html");
+      } else {
+        navbarLoginBtn.textContent = "Login";
+        navbarLoginBtn.setAttribute("dest", "pages/login.html");
+      }
+    });
 
   // Insert a dynamic navbar style.css into the target html
   fetch("/frontend/templates/navbar/style.css")
