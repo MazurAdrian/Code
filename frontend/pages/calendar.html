@@ -11,83 +11,72 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <link rel="stylesheet" href="/frontend/css/main.css" />
     <link rel="stylesheet" href="/frontend/css/calendar.css" />
   </head>
   <body>
     <header></header>
 
-    <main>
-      <div class="main-content">
-        <div class="content-container-left">
-          <h1>Did you know?</h1>
-          <div id="factInfoContainer"></div>
-        </div>
-        <div class="content-container-middle">
-          <h1>Interactive Calendar</h1>
-          <hr />
-          <div id="calendar"></div>
-        </div>
-        <div class="content-container-right">
-          <div id="advertisement-container"></div>
+    <main class="page">
+      <div class="calendar-shell">
+        <div id="calendar"></div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="calendarDayModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="calendarDayModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="calendarDayModalTitle">
+                Failed to load.
+              </h5>
+            </div>
+            <div class="modal-body">
+              <h3>Availability</h3>
+              <hr />
+              <p id="calendarDayModalAvailability">Failed to load.</p>
+              <div class="special" id="calendarDayModalSpecialContainer">
+                <br />
+                <h3>Special</h3>
+                <hr />
+                <div id="specialsContent"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="calendarDayModalBookButton"
+                data-bs-dismiss="modal"
+                disabled
+              >
+                Book This Day
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
 
-    <div
-      class="modal fade"
-      id="calendarDayModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="calendarDayModalTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="calendarDayModalTitle">
-              Failed to load.
-            </h5>
-          </div>
-          <div class="modal-body">
-            <h3>Availability</h3>
-            <hr />
-            <p id="calendarDayModalAvailability">Failed to load.</p>
-            <div class="special" id="calendarDayModalSpecialContainer">
-              <br />
-              <h3>Special</h3>
-              <hr />
-              <div id="specialsContent"></div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              id="calendarDayModalBookButton"
-              data-bs-dismiss="modal"
-              disabled
-            >
-              Book This Day
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <footer></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -95,22 +84,7 @@
     ></script>
 
     <script src="/frontend/js/Navigation.js"></script>
-    <script src="/frontend/js/Advertisement.js"></script>
     <script src="/frontend/js/DestButtons.js"></script>
-    <script type="module" src="/frontend/js/InfoBar.js"></script>
-    <script type="module">
-      import { displayInfoBar } from "/frontend/js/InfoBar.js";
-      displayInfoBar([
-        {
-          title: "Availability",
-          desc: "This interactive calendar updates as soon as we determine that there are no availabile slots on a given day, and we will make clear of this on your selection!",
-        },
-        {
-          title: "Special",
-          desc: "We provide many incentives and rewards for booking on a certain day, to find out about potential rewards on a day, click on it on the calendar and extra information will appear!",
-        },
-      ]);
-    </script>
 
     <script type="module" src="/frontend/js/Calendar.js"></script>
   </body>

@@ -1,0 +1,114 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--colour-background);
+  color: var(--colour-text);
+}
+
+.calendar-shell {
+  width: min(980px, 100%);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 20px 60px var(--colour-accent);
+}
+
+/* FullCalendar css variables */
+.fc {
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: var(--colour-background);
+  --fc-border-color: var(--colour-border);
+
+  --fc-button-text-color: var(--colour-text);
+  --fc-button-bg-color: var(--colour-button);
+  --fc-button-border-color: var(--colour-border);
+  --fc-button-hover-bg-color: var(--colour-accent);
+  --fc-button-active-bg-color: var(--colour-button);
+
+  --fc-today-bg-color: var(--colour-button);
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 14px;
+}
+
+.fc .fc-button {
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.fc .fc-scrollgrid,
+.fc .fc-scrollgrid table {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.fc .fc-col-header-cell {
+  background: var(--colour-other);
+  font-weight: 650;
+  letter-spacing: 0.4px;
+}
+
+.fc .fc-col-header-cell-cushion {
+  padding: 10px 0;
+  color: var(--colour-text);
+  text-decoration: none;
+}
+
+.fc .fc-daygrid-day-number {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  margin: 8px;
+  padding: 0;
+  text-decoration: none;
+  color: var(--colour-text);
+  background: transparent;
+  transition:
+    background 120ms ease,
+    transform 120ms ease,
+    color 120ms ease;
+}
+
+.fc .fc-daygrid-day-number:visited {
+  color: var(--colour-text);
+}
+
+.fc .fc-daygrid-day:hover .fc-daygrid-day-number {
+  background: var(--colour-border);
+  transform: translateY(-1px);
+}
+
+.fc .fc-daygrid-day-number:focus {
+  outline: none;
+}
+.fc .fc-daygrid-day-number:focus-visible {
+  box-shadow: 0 0 0 3px var(--colour-accent);
+}
+
+.fc .fc-daygrid-day.is-today .fc-daygrid-day-number,
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+  background: var(--colour-accent);
+}
+
+.fc .fc-day-other .fc-daygrid-day-number {
+  color: var(--colour-text-muted);
+}
+.fc .fc-daygrid-day-frame {
+  transition: background 120ms ease;
+}
+.fc .fc-daygrid-day:hover .fc-daygrid-day-frame {
+  background: var(--colour-other);
+}

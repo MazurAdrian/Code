@@ -1,61 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
-  var calendar = new FullCalendar.Calendar(calendarEl, {
+  const calendarEl = document.getElementById("calendar");
+  const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
-    navLinks: true,
-    navLinkDayClick: function (date) {
-      const day = date.getDate();
-      const month = date.getMonth() + 1;
-      const year = date.getFullYear();
-
-      const dayInfo = getDayInfo(day, month, year);
-
-      const modalEl = document.getElementById("calendarDayModal");
-      const modalTitleEl = document.getElementById("calendarDayModalTitle");
-      const modalAvailabilityEl = document.getElementById(
-        "calendarDayModalAvailability",
-      );
-      const modalSpecialContainerEl = document.getElementById(
-        "calendarDayModalSpecialContainer",
-      );
-      const specialsContentEl = document.getElementById("specialsContent");
-      const modalBookButton = document.getElementById(
-        "calendarDayModalBookButton",
-      );
-
-      const formattedDate = `${day} ${monthNumberToString(month)} ${year}`;
-
-      modalTitleEl.textContent = formattedDate;
-      if (dayInfo.special.hasSpecial) {
-        modalSpecialContainerEl.removeAttribute("hidden");
-        specialsContentEl.innerHTML = ""; // Reset the HTML so its empty
-        dayInfo.special.specials.forEach((special) => {
-          specialsContentEl.innerHTML += `<h4>${special.specialTitle}</h4><p>${special.specialNotice}</p>`;
-        });
-      } else {
-        modalSpecialContainerEl.setAttribute("hidden", "true");
-      }
-
-      if (dayInfo.availability.isAvailable) {
-        modalAvailabilityEl.textContent = dayInfo.availability.notice;
-        modalBookButton.removeAttribute("disabled");
-      } else {
-        modalAvailabilityEl.textContent =
-          "This day is already fully booked, sorry!";
-        modalBookButton.setAttribute("disabled", "true");
-      }
-
-      modalBookButton.addEventListener("click", () => {
-        alert(
-          `One day in the near future, this will send you to the checkout page for a certain day (${formattedDate})`,
-        );
-      });
-
-      const modal = new bootstrap.Modal(modalEl);
-      modal.show();
+    headerToolbar: {
+      left: "prev",
+      center: "title",
+      right: "next",
     },
+    navLinks: true,
+    views: {
+      dayGridMonth: { type: "dayGridMonth" },
+    },
+    navLinkDayClick: calendarDateClickEvent,
+    events: [],
+    eventDisplay: "none",
+
+    validRange: (nowDate) => ({
+      start: new Date(),
+    }),
+    selectable: false,
+    editable: false,
   });
   calendar.render();
+
+  /**
+   * Disable the "prev" button when at the first allowed month
+   */
+  function syncPrevDisabled() {
+    const now = new Date();
+    const min = new Date(now.getFullYear(), now.getMonth(), 1);
+
+    const viewStart = new Date(calendar.view.currentStart);
+    const atMinMonth =
+      viewStart.getFullYear() === min.getFullYear() &&
+      viewStart.getMonth() === min.getMonth();
+
+    const prevBtn = calendarEl.querySelector(".fc-prev-button");
+    if (prevBtn) prevBtn.disabled = atMinMonth;
+  }
+
+  calendar.on("dateSet", syncPrevDisabled);
+  syncPrevDisabled();
 });
 
 /**
@@ -118,4 +103,54 @@ function monthNumberToString(month) {
   if (month < 0 || month > months.length - 1) return;
 
   return months[month];
+}
+
+function calendarDateClickEvent(date) {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const dayInfo = getDayInfo(day, month, year);
+
+  const modalEl = document.getElementById("calendarDayModal");
+  const modalTitleEl = document.getElementById("calendarDayModalTitle");
+  const modalAvailabilityEl = document.getElementById(
+    "calendarDayModalAvailability",
+  );
+  const modalSpecialContainerEl = document.getElementById(
+    "calendarDayModalSpecialContainer",
+  );
+  const specialsContentEl = document.getElementById("specialsContent");
+  const modalBookButton = document.getElementById("calendarDayModalBookButton");
+
+  const formattedDate = `${day} ${monthNumberToString(month)} ${year}`;
+
+  modalTitleEl.textContent = formattedDate;
+  if (dayInfo.special.hasSpecial) {
+    modalSpecialContainerEl.removeAttribute("hidden");
+    specialsContentEl.innerHTML = ""; // Reset the HTML so its empty
+    dayInfo.special.specials.forEach((special) => {
+      specialsContentEl.innerHTML += `<h4>${special.specialTitle}</h4><p>${special.specialNotice}</p>`;
+    });
+  } else {
+    modalSpecialContainerEl.setAttribute("hidden", "true");
+  }
+
+  if (dayInfo.availability.isAvailable) {
+    modalAvailabilityEl.textContent = dayInfo.availability.notice;
+    modalBookButton.removeAttribute("disabled");
+  } else {
+    modalAvailabilityEl.textContent =
+      "This day is already fully booked, sorry!";
+    modalBookButton.setAttribute("disabled", "true");
+  }
+
+  modalBookButton.addEventListener("click", () => {
+    alert(
+      `One day in the near future, this will send you to the checkout page for a certain day (${formattedDate})`,
+    );
+  });
+
+  const modal = new bootstrap.Modal(modalEl);
+  modal.show();
 }

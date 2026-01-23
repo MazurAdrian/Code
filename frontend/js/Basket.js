@@ -10,5 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!ticketId) return;
 
     // Insert logic to add to basket
+    alert(ticketId);
   });
 });

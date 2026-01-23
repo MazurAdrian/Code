@@ -18,19 +18,114 @@
     <main>
       <div class="main-content">
         <div class="content-container-left">
-          <h1>Did you know?</h1>
-          <div id="factInfoContainer"></div>
+          <h1>FAQ</h1>
+          <hr />
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Accomodation
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Travelling far from home? There are plenty nearby hotels, so
+                  you don't have to worry about making your reservation on time!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Going Green
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We understand the impact of our paper trail, hence why we have
+                  introduced the <strong>brand new</strong> web solution from
+                  which you can book, manage bookings and view availability or
+                  information from anywhere without a single piece of paper!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  What can I expect?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  This is a common question, new customers don't know what
+                  <strong>Safari Heights</strong> looks like. Imagine a large
+                  resort which you can drive through and feed our various
+                  animals or see animals in their natural states! We only ask
+                  you to leave <strong>certain</strong> animals to themselves,
+                  as they might not enjoy interaction as much as we do!
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="content-container-middle">
-          <h1>Middle</h1>
+          <h2>Who are we?</h2>
+          <p>We are <strong>Safari Heights</strong>,</p>
           <hr />
-          <h2>Lorem Ipsum</h2>
+          <h2>Our goal</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure modi
             voluptatum quos, quasi debitis consequuntur, officia ipsum optio
             magni dignissimos fuga ut rem corrupti animi?
           </p>
+          <hr />
+          <h2>Location</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2388.5484593440533!2d-2.886069486447622!3d53.225944072139086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487add9d7c4b2fe7%3A0x1458b55b7024e327!2sChester%20Zoo!5e0!3m2!1sen!2suk!4v1769164002469!5m2!1sen!2suk"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
 
         <div class="content-container-right">
@@ -51,24 +146,19 @@
     <script src="/frontend/js/Navigation.js"></script>
     <script src="/frontend/js/Advertisement.js"></script>
     <script src="/frontend/js/DestButtons.js"></script>
-    <script type="module" src="/frontend/js/InfoBar.js"></script>
-    <script type="module">
-      import { displayInfoBar } from "/frontend/js/InfoBar.js";
-      displayInfoBar([]);
-    </script>
   </body>
 </html>
 
 <!-- IDEAS
   1. Add a footer -- DONE: JUST GIVE IT CONTENT
-  2. Find a better color scheme
-  3. Dynamic left content bar insertion, custom function per file, data injection is easy
+  2. Style iframes (and images) within the main content box
+  3. If the user is logged in, login button should be "basket" instead
   4. Header -- On mobile view, make one button per row
 -->
 
 <!-- PAGES
   1. Basket
-  2. Interactive Calendar -- Style the calendar
+  2. Checkout
   3. Educational Visits
   4. Home / Accomodation
 -->
