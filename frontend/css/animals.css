@@ -1,0 +1,40 @@
+.animals-info {
+  display: flex;
+  justify-content: center;
+  border: 3px solid var(--colour-border);
+  border-radius: 26px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.animals-info .info-box * {
+  justify-content: center;
+  text-align: center;
+}
+
+.animals-info #animals-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.animals-info #animals-container .card {
+  padding: 0.5rem;
+}
+
+.animals-info #animals-container .card {
+  background-color: var(--colour-background);
+  padding: 0.5rem;
+  border-radius: 26px;
+  border: 3px solid var(--colour-border);
+  box-shadow: 0 4px 6px var(--colour-accent);
+}
+
+.animals-info #animals-container .card img {
+  margin-bottom: 1.5rem;
+  border-radius: 26px;
+  border: 2px solid var(--colour-border);
+}

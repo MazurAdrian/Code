@@ -30,46 +30,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const ticketsContainer = document.getElementById("tickets-section");
   const dateInputEl = document.getElementById("dateSelect");
   const dateErrorEl = document.getElementById("date-error");
+  const addToBasketBtn = document.getElementById("");
 
-  // Fetch basket from backend here
+  // Fetch tickets here
+  const tickets = templateTickets;
 
   // Loop through each ticket and insert the formatted HTML into the ticket container
-  templateTickets.forEach((ticket) => {
+  tickets.forEach((ticket) => {
     ticketsContainer.innerHTML += formattedTicketHTML(ticket);
   });
 
-  // TICKETS: Add check so that on page load, if there is date query params then
-  // buttons should enable by default
+  const dateInQuery = getDateFromQuery();
+
+  if (dateInQuery)
+    dateInputEl.value = `${dateInQuery.getFullYear()}-${String(dateInQuery.getMonth() + 1).padStart(2, "0")}-${String(dateInQuery.getDate()).padStart(2, "0")}`;
+
+  disableBasketButtons(!dateWithinBounds(dateInQuery));
 
   dateInputEl.addEventListener("input", (event) => {
-    const date = event.target.value.split("-");
-    const year = date[0];
-    const month = date[1];
-    const day = date[2];
+    const date = new Date(event.target.value);
+    setDateIntoQuery(date);
 
-    const url = new URL(window.location.href);
+    const dateInBounds = dateWithinBounds(date);
+    disableBasketButtons(!dateInBounds);
+    dateErrorEl.textContent = dateInBounds
+      ? ""
+      : "Invalid date! Your desired date must be after today and no more than 2 months in advance!";
+  });
 
-    url.searchParams.set("d", day);
-    url.searchParams.set("m", month);
-    url.searchParams.set("y", year);
-    window.history.replaceState({}, "", url);
+  document.addEventListener("click", (event) => {
+    const ticketId = event.target.getAttribute("ticket-id");
+    const date = getDateFromQuery();
 
-    if (!dateWithinBounds(new Date(date))) {
-      dateErrorEl.textContent =
-        "Invalid date! Your desired date must be after today and no more than 2 months in advance!";
-      document
-        .querySelectorAll(".ticket-add-to-basket-button")
-        .forEach((buttonEl) => {
-          buttonEl.setAttribute("disabled", "");
-        });
-    } else {
-      dateErrorEl.textContent = "";
-      document
-        .querySelectorAll(".ticket-add-to-basket-button")
-        .forEach((buttonEl) => {
-          buttonEl.removeAttribute("disabled");
-        });
-    }
+    if (!ticketId || !date || !dateWithinBounds(date)) return;
+
+    // Here we add the ticket to basket via backend
+    console.log(`Ticket id: ${ticketId}, date: ${date}`);
   });
 });
 
@@ -105,6 +101,8 @@ function formattedTicketHTML(ticket) {
  * @returns {boolean}
  */
 function dateWithinBounds(date) {
+  if (!date) return false;
+
   const today = new Date();
   const maxBound = new Date(
     today.getFullYear(),
@@ -113,4 +111,53 @@ function dateWithinBounds(date) {
   );
 
   return date > today && date < maxBound;
+}
+
+/**
+ * @returns {Date|false}
+ */
+function getDateFromQuery() {
+  const url = new URL(window.location.href);
+
+  const [day, month, year] = [
+    url.searchParams.get("d"),
+    url.searchParams.get("m"),
+    url.searchParams.get("y"),
+  ];
+
+  if (!day || !month || !year) return false;
+
+  return new Date(year, month - 1, day);
+}
+
+/**
+ *
+ * @param {Date} date
+ */
+function setDateIntoQuery(date) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("d", date.getDate());
+  url.searchParams.set("m", date.getMonth() + 1);
+  url.searchParams.set("y", date.getFullYear());
+  window.history.replaceState({}, "", url);
+}
+
+/**
+ *
+ * @param {boolean} toggle
+ */
+function disableBasketButtons(toggle) {
+  if (toggle) {
+    document
+      .querySelectorAll(".ticket-add-to-basket-button")
+      .forEach((buttonEl) => {
+        buttonEl.setAttribute("disabled", "");
+      });
+  } else {
+    document
+      .querySelectorAll(".ticket-add-to-basket-button")
+      .forEach((buttonEl) => {
+        buttonEl.removeAttribute("disabled");
+      });
+  }
 }
