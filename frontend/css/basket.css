@@ -1,0 +1,50 @@
+.basket-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.basket-item {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--colour-border);
+  background-color: var(--colour-background);
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 20rem;
+}
+
+.basket-item .basket-main {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1rem;
+}
+
+.basket-item .basket-price {
+  padding-left: 1rem;
+}
+
+.basket-item .basket-secondary {
+  display: flex;
+  justify-content: left;
+}
+
+.basket-info {
+  display: flex;
+  justify-content: row;
+  gap: 2rem;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.basket-info .basket-total {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .basket-info {
+    margin-top: 3rem;
+  }
+}

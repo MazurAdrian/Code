@@ -3,8 +3,7 @@ VALUES (
     "myemail@gmail.com",
     "John",
     "Doe",
-    "1234567890",
-    "euifahfuefes"
+    "1234567890"
 )
 
 INSERT INTO `booking` (`userEmail`, `bookingDate`, `ticketsAmount`)

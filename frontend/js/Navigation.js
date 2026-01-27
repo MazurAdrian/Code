@@ -7,19 +7,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Navbar
 
-  // Insert authentication functions
-  document.head.insertAdjacentHTML(
-    "beforeend",
-    '<script type="module" src="/frontend/js/Auth.js"></script>',
-  );
-
   fetch("/frontend/templates/navbar/content.html")
     .then((res) => res.text())
-    .then((html) => {
+    .then(async (html) => {
       navbarEl.innerHTML = html;
       const navbarLoginBtn = document.getElementById("navbar-login-btn");
-
-      if (isLoggedIn()) {
+      if (await isLoggedIn()) {
         navbarLoginBtn.textContent = "Basket";
         navbarLoginBtn.setAttribute("dest", "pages/basket.html");
       } else {

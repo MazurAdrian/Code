@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safari Heights</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/frontend/css/main.css" />
+    <link rel="stylesheet" href="/frontend/css/login.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="main-content">
+        <div class="content-container-left">
+          <h1>Did you know?</h1>
+          <div id="factInfoContainer"></div>
+        </div>
+
+        <div class="content-container-middle">
+          <h1>Checkout</h1>
+          <hr />
+          <h4>Total Price: £<span id="total-price">--</span></h4>
+          <hr />
+          <form method="post">
+            <label for="form-checkout-email">Enter your email</label>
+            <p class="error-input" id="error-input" hidden>
+              This email is already taken by an account!
+            </p>
+            <input
+              type="email"
+              name="form-checkout-email"
+              id="form-checkout-email"
+              placeholder="example@gmail.com"
+            />
+
+            <h3>Payment</h3>
+
+            <label for="checkout-card-number"
+              >Enter your long card number</label
+            >
+            <input type="text" placeholder="xxxx-xxxx-xxxx-0781" />
+
+            <label for="checkout-card-fullname"
+              >Enter the name of the cardholder</label
+            >
+            <input type="text" placeholder="Jeff Doe" />
+
+            <label for="checkout-card-expiry">Enter your cards expiry</label>
+            <input type="text" placeholder="07/26" />
+
+            <label for="checkout-card-security">Enter your cards cvv</label>
+            <input type="password" placeholder="***" />
+
+            <button type="submit">Purchase</button>
+          </form>
+        </div>
+
+        <div class="content-container-right">
+          <div id="advertisement-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script type="module" src="/frontend/js/Backend.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Dynamic navbar insert and management -->
+    <script type="module" src="/frontend/js/Navigation.js"></script>
+    <script src="/frontend/js/Advertisement.js"></script>
+    <script src="/frontend/js/DestButtons.js"></script>
+    <script type="module" src="/frontend/js/InfoBar.js"></script>
+    <script type="module" src="/frontend/js/Checkout.js"></script>
+    <script type="module">
+      import { displayInfoBar } from "/frontend/js/InfoBar.js";
+      displayInfoBar([]);
+    </script>
+  </body>
+</html>

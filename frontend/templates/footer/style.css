@@ -29,7 +29,8 @@ footer .footerCategory ul {
   margin: 0;
 }
 
-footer .footerCategory ul li a {
+footer .footerCategory ul li a,
+footer .footerCategory ul li p {
   text-decoration: none;
   color: var(--colour-text);
 }

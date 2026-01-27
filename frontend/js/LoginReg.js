@@ -1,4 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { isLoggedIn } from "./Backend.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  if (await isLoggedIn()) window.location.href = "/frontend/index.html";
+
   // Get all login input elements
   const loginEmailInput = document.getElementById("form-login-email");
   const loginPasswordInput = document.getElementById("form-login-password");

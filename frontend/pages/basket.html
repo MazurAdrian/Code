@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
     <link rel="stylesheet" href="/frontend/css/tickets.css" />
+    <link rel="stylesheet" href="/frontend/css/basket.css" />
   </head>
   <body>
     <header></header>
@@ -26,17 +27,20 @@
         <div class="content-container-middle">
           <h1>Basket</h1>
           <hr />
-          <div id="tickets-section"></div>
-          <div class="extra-content">
-            <p class="info-text">
-              *Children under 2 years old do not require a ticket
-            </p>
+          <h2 id="empty-basket-warning" hidden>Your basket is empty!</h2>
+          <div class="basket-container" id="basket-container">
+            <!-- Dynamically insert basket items -->
+          </div>
+          <div class="basket-info" id="basket-info-container">
+            <h3 class="basket-total">
+              Total: <span id="basket-total">£--</span>
+            </h3>
             <button
               type="button"
-              dest="pages/basket.html"
-              class="go-to-basket-button"
+              class="btn btn-primary"
+              id="basket-checkout-btn"
             >
-              Go To Basket
+              Checkout
             </button>
           </div>
         </div>
@@ -48,6 +52,8 @@
     </main>
 
     <footer></footer>
+
+    <script type="module" src="/frontend/js/Backend.js"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -74,7 +80,6 @@
       ]);
     </script>
 
-    <script src="/frontend/js/Tickets.js"></script>
     <script src="/frontend/js/Basket.js"></script>
   </body>
 </html>
