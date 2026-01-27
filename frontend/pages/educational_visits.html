@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safari Heights - Basket</title>
+    <title>Safari Heights - Educational Visits</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,8 +12,6 @@
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
     <link rel="stylesheet" href="/frontend/css/tickets.css" />
-    <link rel="stylesheet" href="/frontend/css/basket.css" />
-    <link rel="stylesheet" href="/frontend/css/inputFields.css" />
   </head>
   <body>
     <header></header>
@@ -26,24 +24,25 @@
         </div>
 
         <div class="content-container-middle">
-          <h1>Basket</h1>
+          <h1>Educational Visits</h1>
           <hr />
-          <h2 id="empty-basket-warning" hidden>Your basket is empty!</h2>
-          <div class="basket-container" id="basket-container">
-            <!-- Dynamically insert basket items -->
-          </div>
-          <div class="basket-info" id="basket-info-container">
-            <h3 class="basket-total">
-              Total: <span id="basket-total">£--</span>
-            </h3>
-            <button
-              type="button"
-              class="btn btn-primary"
-              id="basket-checkout-btn"
-            >
-              Checkout
-            </button>
-          </div>
+          <h2>School Trip</h2>
+          <p>
+            A school trip to Safari Heights would broaden the world to all young
+            learners, this is why we have excellent facilities for young ones
+            and their schools.
+          </p>
+          <h2>Booking</h2>
+          <p>
+            Booking for an educational visit is not done the same as a regular
+            ticket, instead you will have to call us or send us an email (at the
+            <strong>footer</strong> of this page).
+          </p>
+
+          <img
+            src="/frontend/assets/safari_example_2.png"
+            alt="Child playing near a zebra"
+          />
         </div>
 
         <div class="content-container-right">
@@ -71,16 +70,10 @@
       import { displayInfoBar } from "/frontend/js/InfoBar.js";
       displayInfoBar([
         {
-          title: "Discounts",
-          desc: "We often include discounts and other incentives with certain tickets, these will be made clear during checkout!",
-        },
-        {
-          title: "Cancellation",
-          desc: "Changed your mind? Well you can request a refund up to 24 hours before your visit!",
+          title: "Support",
+          desc: "We have wonderful facilities for all variations of students, ensuring that each and every student will get the most out of their journey.",
         },
       ]);
     </script>
-
-    <script type="module" src="/frontend/js/Basket.js"></script>
   </body>
 </html>

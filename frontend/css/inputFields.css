@@ -24,7 +24,7 @@
   width: 10rem;
 }
 
-.invalid-password-error {
+.field-error {
   margin: 0.3rem;
   font-size: small;
   color: red;

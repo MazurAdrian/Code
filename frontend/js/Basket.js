@@ -1,31 +1,13 @@
-const basketContentsTemp = {
-  basketTotal: 39.99,
-  items: [
-    {
-      itemId: 1,
-      itemTitle: "MyItem",
-      itemQuantity: 1,
-      itemPrice: 12.88,
-      itemDate: new Date(),
-    },
-    {
-      itemId: 1,
-      itemTitle: "MyItem",
-      itemQuantity: 1,
-      itemPrice: 12.88,
-      itemDate: new Date(),
-    },
-  ],
-};
+import { getBasket } from "./Backend.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const warningEl = document.getElementById("empty-basket-warning");
   const basketInfoContainer = document.getElementById("basket-info-container");
   const basketTotalPriceEl = document.getElementById("basket-total");
   const basketItemsContainer = document.getElementById("basket-container");
   const basketCheckoutBtn = document.getElementById("basket-checkout-btn");
-  // Fetch basket items here
-  const basketItems = basketContentsTemp;
+
+  const basketItems = await getBasket();
 
   basketItemsContainer.innerHTML = "";
   if (basketItems.items.length) {

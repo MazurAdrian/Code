@@ -38,3 +38,9 @@
   border-radius: 26px;
   border: 2px solid var(--colour-border);
 }
+
+@media (max-width: 768px) {
+  .animals-info #animals-container {
+    flex-direction: column;
+  }
+}

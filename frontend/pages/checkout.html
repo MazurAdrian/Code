@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/frontend/css/main.css" />
-    <link rel="stylesheet" href="/frontend/css/login.css" />
+    <link rel="stylesheet" href="/frontend/css/inputFields.css" />
   </head>
   <body>
     <header></header>
@@ -29,7 +29,9 @@
           <h4>Total Price: £<span id="total-price">--</span></h4>
           <hr />
           <form method="post">
-            <label for="form-checkout-email">Enter your email</label>
+            <label for="form-checkout-email" id="form-checkout-email-label"
+              >Enter your email</label
+            >
             <p class="error-input" id="error-input" hidden>
               This email is already taken by an account!
             </p>
@@ -42,23 +44,52 @@
 
             <h3>Payment</h3>
 
-            <label for="checkout-card-number"
+            <label for="form-checkout-card-number"
               >Enter your long card number</label
             >
-            <input type="text" placeholder="xxxx-xxxx-xxxx-0781" />
+            <input
+              type="text"
+              placeholder="1234-5678-9012-3456"
+              id="form-checkout-card-number"
+              maxlength="19"
+            />
 
-            <label for="checkout-card-fullname"
+            <label for="form-checkout-card-fullname"
               >Enter the name of the cardholder</label
             >
-            <input type="text" placeholder="Jeff Doe" />
+            <input
+              type="text"
+              placeholder="Jeff Doe"
+              id="form-checkout-card-fullname"
+            />
 
-            <label for="checkout-card-expiry">Enter your cards expiry</label>
-            <input type="text" placeholder="07/26" />
+            <label for="form-checkout-card-expiry"
+              >Enter your cards expiry</label
+            >
+            <input
+              type="text"
+              placeholder="07/26"
+              id="form-checkout-card-expiry"
+              maxlength="5"
+            />
 
-            <label for="checkout-card-security">Enter your cards cvv</label>
-            <input type="password" placeholder="***" />
+            <label for="form-checkout-card-security"
+              >Enter your cards cvv</label
+            >
+            <input
+              type="password"
+              placeholder="***"
+              id="form-checkout-card-security"
+              maxlength="3"
+            />
 
-            <button type="submit">Purchase</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="purchase-submit-button"
+            >
+              Purchase
+            </button>
           </form>
         </div>
 
@@ -86,7 +117,12 @@
     <script type="module" src="/frontend/js/Checkout.js"></script>
     <script type="module">
       import { displayInfoBar } from "/frontend/js/InfoBar.js";
-      displayInfoBar([]);
+      displayInfoBar([
+        {
+          title: "Privacy",
+          desc: "We take your data privacy very seriously! That is why we take the greatest measures to ensure your data is as safe as possible with us!",
+        },
+      ]);
     </script>
   </body>
 </html>
