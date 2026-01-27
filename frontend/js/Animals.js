@@ -16,12 +16,17 @@ const animals = [
   },
 ];
 
+// Wait for the page contents to load
 document.addEventListener("DOMContentLoaded", () => {
+  // Get the container that will house animal data
   const animalsContainer = document.getElementById("animals-container");
 
+  // Empty the contents of the animal container, preventing bugs or duplicated data
   animalsContainer.innerHTML = "";
 
+  // Loop though each animal object
   animals.forEach((animal) => {
+    // Append HTML data for the animal into the animals container
     animalsContainer.innerHTML += `
         <div class="card" style="width: 18rem">
             <img src="${animal.img}" alt="${animal.name}" />

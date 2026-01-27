@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="/frontend/css/animals.css" />
   </head>
   <body>
+    <!-- Dynamically inserted header -->
     <header></header>
 
+    <!-- Main container for all content -->
     <main>
       <div class="main-content">
         <div class="content-container-left">
@@ -158,9 +160,8 @@
       </div>
     </main>
 
+    <!-- Dynamically inserted footer -->
     <footer></footer>
-
-    <script type="module" src="/frontend/js/Backend.js"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -168,10 +169,19 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Backend utilities -->
+    <script type="module" src="/frontend/js/Backend.js"></script>
+
     <!-- Dynamic navbar insert and management -->
     <script type="module" src="/frontend/js/Navigation.js"></script>
+
+    <!-- Display advertisement box content -->
     <script src="/frontend/js/Advertisement.js"></script>
+
+    <!-- Add functionality to buttons that redirect the user to other pages -->
     <script src="/frontend/js/DestButtons.js"></script>
+
+    <!-- Script that inserts animal info -->
     <script src="/frontend/js/Animals.js"></script>
   </body>
 </html>

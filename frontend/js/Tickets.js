@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const ticketsContainer = document.getElementById("tickets-section");
   const dateInputEl = document.getElementById("dateSelect");
   const dateErrorEl = document.getElementById("date-error");
-  const addToBasketBtn = document.getElementById("");
 
   // Fetch tickets here
   const tickets = templateTickets;
@@ -114,6 +113,8 @@ function dateWithinBounds(date) {
 }
 
 /**
+ * Function to get a date object from the query params, or false if not there or invalid
+ *
  * @returns {Date|false}
  */
 function getDateFromQuery() {
@@ -131,6 +132,7 @@ function getDateFromQuery() {
 }
 
 /**
+ * Insert a date object into the query params
  *
  * @param {Date} date
  */
@@ -143,6 +145,7 @@ function setDateIntoQuery(date) {
 }
 
 /**
+ * Enable or disable all add to basket buttons
  *
  * @param {boolean} toggle
  */
